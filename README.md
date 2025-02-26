@@ -4,6 +4,7 @@ This project is a Flask-based RESTful API that performs real-time sentiment anal
 Install Python and Flask:
 
 pip install flask pymongo textblob
+
 Install MongoDB (You can use a MongoDB cloud service like MongoDB Atlas or set up a local MongoDB server).
-Install Docker: Follow the official instructions to install Docker: https://docs.docker.com/get-docker/
+
 
