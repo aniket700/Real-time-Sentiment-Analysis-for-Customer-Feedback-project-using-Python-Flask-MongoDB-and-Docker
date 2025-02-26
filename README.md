@@ -4,3 +4,6 @@ This project is a Flask-based RESTful API that performs real-time sentiment anal
 Install Python and Flask:
 
 install flask pymongo textblob
+
+Install TextBlob:
+pip install textblob
