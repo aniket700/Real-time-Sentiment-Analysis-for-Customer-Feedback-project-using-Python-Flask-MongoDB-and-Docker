@@ -1,0 +1,51 @@
+pip install flask pymongo textblob
+pip install textblob
+from textblob import TextBlob
+
+def analyze_sentiment(text):
+    blob = TextBlob(text)
+    polarity = blob.sentiment.polarity
+    if polarity > 0:
+        return "Positive"
+    elif polarity < 0:
+        return "Negative"
+    else:
+        return "Neutral"
+from flask import Flask, request, jsonify
+from flask_pymongo import PyMongo
+from textblob import TextBlob
+
+app = Flask(__name__)
+
+
+app.config["MONGO_URI"] = "mongodb://localhost:27017/customer_feedback"
+mongo = PyMongo(app)
+
+def analyze_sentiment(text):
+    blob = TextBlob(text)
+    polarity = blob.sentiment.polarity
+    if polarity > 0:
+        return "Positive"
+    elif polarity < 0:
+        return "Negative"
+    else:
+        return "Neutral"
+
+@app.route("/feedback", methods=["POST"])
+def handle_feedback():
+    data = request.get_json()
+    text = data.get("feedback")
+
+   
+    sentiment = analyze_sentiment(text)
+
+    feedback_data = {
+        "feedback": text,
+        "sentiment": sentiment
+    }
+    mongo.db.feedbacks.insert_one(feedback_data)
+
+    return jsonify({"message": "Feedback received", "sentiment": sentiment})
+
+if __name__ == "__main__":
+    app.run(debug=True)
