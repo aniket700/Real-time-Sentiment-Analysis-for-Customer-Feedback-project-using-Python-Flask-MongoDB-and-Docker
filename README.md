@@ -8,3 +8,21 @@ pip install flask pymongo textblob
 Install MongoDB (You can use a MongoDB cloud service like MongoDB Atlas or set up a local MongoDB server).
 
 
+Install TextBlob:
+
+pip install textblob
+
+
+Run MongoDB: If you're using a local instance of MongoDB, start it by running:
+
+mongod
+
+Create a requirements.txt:
+
+flask
+flask-pymongo
+textblob
+
+Build the Docker image: In the project directory, run the following command to build the Docker image:
+
+docker build -t sentiment-analysis-app .
