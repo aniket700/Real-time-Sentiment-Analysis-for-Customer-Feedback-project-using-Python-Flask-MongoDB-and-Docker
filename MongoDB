@@ -1,0 +1,17 @@
+[
+    {
+        "_id": ObjectId("65d5f3e9b1c8b9c7d7a8f3b5"),
+        "text": "I love this product! It is fantastic.",
+        "sentiment": "positive"
+    },
+    {
+        "_id": ObjectId("65d5f3e9b1c8b9c7d7a8f3b6"),
+        "text": "The service was horrible, I am disappointed.",
+        "sentiment": "negative"
+    },
+    {
+        "_id": ObjectId("65d5f3e9b1c8b9c7d7a8f3b7"),
+        "text": "The product is okay, nothing too special.",
+        "sentiment": "neutral"
+    }
+]
